@@ -8,7 +8,7 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import { JsonRpcSigner, ethers } from "ethers";
-import { Dispatch, FC, SetStateAction, useEffect } from "react";
+import { Dispatch, FC, SetStateAction} from "react";
 import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
