@@ -7,3 +7,8 @@ interface NftMetadata {
     description: string;
     image: string;
   }
+
+  interface StsNftMetadata extends NftMetadata {
+    tokenId: number;
+    amount: number;
+  }

@@ -25,15 +25,11 @@ contract MintNft is ERC1155 {
         return string(abi.encodePacked(metadataUri, Strings.toString(_tokenId), ".json"));
     }
 
-    function checkNfts(address _owner) public view returns (bool[16] memory) {
-        bool[16] memory result;
+    function balanceOfNfts(address _owner) public view returns (uint[16] memory) {
+        uint[16] memory result;
 
         for(uint i = 0; i < 16; i++) {
-            if(balanceOf(_owner, i + 1) > 0) {
-                result[i] = true;
-            } else {
-                result[i] = false;
-            }
+            result[i] = balanceOf(_owner, i + 1);
         }
 
         return result;

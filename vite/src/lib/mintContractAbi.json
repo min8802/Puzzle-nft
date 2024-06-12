@@ -398,12 +398,12 @@
 				"type": "address"
 			}
 		],
-		"name": "checkNfts",
+		"name": "balanceOfNfts",
 		"outputs": [
 			{
-				"internalType": "bool[16]",
+				"internalType": "uint256[16]",
 				"name": "",
-				"type": "bool[16]"
+				"type": "uint256[16]"
 			}
 		],
 		"stateMutability": "view",

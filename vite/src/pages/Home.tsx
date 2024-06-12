@@ -5,7 +5,7 @@ import { OutletContext } from "../components/Layout";
 import PuzzleCard from "../components/PuzzleCard";
 
 const Home: FC = () => {
-    const [mintedList, setMintedList] = useState<boolean[]>([]);
+    const [mintedList, setMintedList] = useState<number[]>([]);
     const [progress, setProgress] = useState<number>(0);
     const navigate = useNavigate();
   const { signer, mintContract } = useOutletContext<OutletContext>();
@@ -15,9 +15,14 @@ const Home: FC = () => {
     try {
       if (!signer || !mintContract) return;
 
-      const response = await mintContract.checkNfts(signer.address);
+      const response = await mintContract.balanceOfNfts(signer.address);
 
-      const temp = response.map((v: boolean) => v);
+      console.log(response);
+
+      const temp = response.map((v: bigint) => Number(v));
+
+      console.log(temp);
+
       setMintedList(temp);
     } catch (error) {
       console.error(error);
@@ -47,8 +52,8 @@ const Home: FC = () => {
 
   return <Flex flexDir="column" w="100%" mb={20}>
       <Flex h={[20,20,40]} justifyContent="center" alignItems="center" fontSize={20} flexDir="column">
-      퍼즐 조각 16개를 맞춰 보자 !!
-      <Button mt={4} onClick={() => navigate("/mint")}>퍼즐 구매</Button>
+      "바다는 지구의 숨결입니다. 바다를 보호하는 것은 우리 모두의 책임입니다."
+      <Button mt={4} onClick={() => navigate("/mint")}>바다 구하기 후원</Button>
       </Flex>
       <Flex flexGrow={1} justifyContent="center" alignItems="center" flexDir="column">
       {signer ? (
@@ -64,7 +69,7 @@ const Home: FC = () => {
             </Flex>
           <Grid templateColumns={"repeat(4, 1fr)"}>
             {mintedList.map((v, i) => (
-              <PuzzleCard key={i} index={i} isMinted={v} />
+              <PuzzleCard key={i} index={i} balance={v} />
             ))}
           </Grid>
           </>
