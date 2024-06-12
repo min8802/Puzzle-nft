@@ -51,7 +51,7 @@ const Home: FC = () => {
   }, [mintedList]);
 
   return <Flex flexDir="column" w="100%" mb={20}>
-      <Flex h={[20,20,40]} justifyContent="center" alignItems="center" fontSize={20} flexDir="column">
+      <Flex h={[20,20,40]} justifyContent="center" alignItems="center" fontSize={24} flexDir="column">
       "바다는 지구의 숨결입니다. 바다를 보호하는 것은 우리 모두의 책임입니다."
       <Button mt={4} onClick={() => navigate("/mint")}>바다 구하기 후원</Button>
       </Flex>

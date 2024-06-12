@@ -1,4 +1,4 @@
-import { Button, Flex, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text, useDisclosure } from "@chakra-ui/react";
+import { Button, Flex, Image, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text, useDisclosure } from "@chakra-ui/react";
 import { FC, useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { OutletContext } from "../components/Layout";
@@ -50,6 +50,7 @@ const Mint: FC = () => {
   return (
     <>
     <Flex justifyContent="center" alignItems="center" flexDir="column" w="100%" mb={[10, 10, 20]}>
+        <Image src="/images/fe65caf3bf1ad7644b6e50ab0917a9ea.png"/>
         <Text fontSize={[24, 24, 36]} fontWeight="semibold" mb={8}>
           바다 구하기 후원에 참여해 주세요
         </Text>
