@@ -27,7 +27,7 @@ const PuzzleCard: FC<PuzzleCardProps> = ({ index, isMinted }) => {
   }, []);
 
   return (
-    <GridItem pos="relative" bgColor="red.100" w={20} h={20}>
+    <GridItem pos="relative" w={[20, 20, 40]} h={[20, 20, 40]}>
       {!isMinted && (
         <Box
           pos="absolute"
@@ -38,7 +38,7 @@ const PuzzleCard: FC<PuzzleCardProps> = ({ index, isMinted }) => {
           bgColor="rgba(0,0,0,0.5)"
         />
       )}
-      {nftMetadata && <Image src={nftMetadata.image} alt={nftMetadata.name} />}
+           <Image src={`/images/puzzle/${index+1}.png`} alt={`Save the SEA #${index+1}`} />
     </GridItem>
   );
 };
