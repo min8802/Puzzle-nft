@@ -27,6 +27,10 @@ const navLinks  = [
         path: "/mint",
     },
     {
+        name: "My",
+        path: "/my",
+    },
+    {
         name: "Sale",
         path: "/sale",
     },
