@@ -16,11 +16,22 @@ export interface OutletContext {
 const Layout: FC = () => {
   const [signer, setSigner] = useState<JsonRpcSigner | null>(null);
   const [mintContract, setMintContract] = useState<Contract | null>(null);
+  
+  const switchToSepoliaNetwork = async () => {
+    try {
+      const sepoliaChainId = '0xaa36a7'; // Sepolia Testnet Chain ID (11155111 in decimal)
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: sepoliaChainId }],
+      });
+    } catch (error) {
+      console.error('네트워크를 변경하지 못했습니다:', error);
+    }
+  };
 
   useEffect(() => {
     if (!signer) return;
-
-    setMintContract(new Contract(mintContractAddress, mintContractAbi, signer));
+    switchToSepoliaNetwork().then(() => setMintContract(new Contract(mintContractAddress, mintContractAbi, signer)));
   }, [signer]);
 
   return (
